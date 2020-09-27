@@ -24,7 +24,7 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS
 db.on('connected', () => {
     console.log('Connected')
 
-    app.listen(8080, () => console.log('Listening on port 8080'))
+    app.listen(process.env.PORT || 8080, () => console.log('Listening...'))
 
     setInterval(() => destinations.forEach(city => getWeather(city)), 60000)
 
