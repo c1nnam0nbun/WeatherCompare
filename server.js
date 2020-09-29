@@ -51,7 +51,7 @@ const getWeather = async city => {
                 wind_speed: (json.wind.speed * 3.6).toFixed(2),
                 wind_direction: wind,
                 date: `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`,
-                time: `${today.getHours()}:${today.getMinutes() + 1}-${today.getSeconds()}`
+                time: `${today.getHours()}:${today.getMinutes() + 1}:${today.getSeconds()}`
             })
 
             await weather.save()
