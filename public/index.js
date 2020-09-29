@@ -65,7 +65,7 @@ const getStats = () => {
 
     document.getElementById('temp').style.display = 'none'
 
-    fetch(`https://weather-stats.herokuapp.com//stats`)
+    fetch(`https://weather-stats.herokuapp.com/stats`)
         .then(response => response.json())
         .then(data => {
             data.forEach(city => {
