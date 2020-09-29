@@ -9,7 +9,7 @@ const getWindDirection = require('./helpers/getWindDirection')
 
 require('dotenv').config()
 const app = express()
-app.use('/', express.static(path.join(__dirname + '/public/index.html')))
+app.use('/', express.static(path.join(__dirname + 'public')))
 
 const today = new Date()
 const db = mongoose.connection
@@ -81,6 +81,10 @@ const updateStatistics = async () => {
         })
     })
 }
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + 'public/index.html'));
+});
 
 app.get('/all_cities', async (req, res) => {
     const data = await Weather.find()
