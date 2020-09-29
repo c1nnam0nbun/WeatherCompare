@@ -26,7 +26,7 @@ db.on('connected', () => {
 
     app.listen(process.env.PORT || 8080, () => console.log('Listening...'))
 
-    setInterval(() => destinations.forEach(city => getWeather(city)), 1000*60*60)
+    setInterval(() => destinations.forEach(city => getWeather(city)), 3600000)
 
     let canRun = true
     setInterval(() => {
