@@ -114,4 +114,4 @@ const clear = async () => {
     await Weather.deleteMany({})
 }
 
-clear()
+
