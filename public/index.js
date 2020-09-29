@@ -8,7 +8,7 @@ const getCityData = (cityName) => {
 
     document.getElementById('temp').style.display = 'block'
 
-    fetch(`http://localhost:8080/city/${cityName}`)
+    fetch(`https://weather-stats.herokuapp.com/city/${cityName}`)
         .then(response => response.json())
         .then(data => {
             data.forEach(city => {
@@ -37,7 +37,7 @@ const getAllCities = () => {
 
     document.getElementById('temp').style.display = 'block'
 
-    fetch(`http://localhost:8080/all_cities`)
+    fetch(`https://weather-stats.herokuapp.com/all_cities`)
         .then(response => response.json())
         .then(data => {
             data.forEach(city => {
@@ -65,7 +65,7 @@ const getStats = () => {
 
     document.getElementById('temp').style.display = 'none'
 
-    fetch(`http://localhost:8080/stats`)
+    fetch(`https://weather-stats.herokuapp.com//stats`)
         .then(response => response.json())
         .then(data => {
             data.forEach(city => {
@@ -81,7 +81,7 @@ const getStats = () => {
         .catch(err => console.error(err))
 }
 
-fetch('http://localhost:8080/cities')
+fetch('https://weather-stats.herokuapp.com//cities')
     .then(response => response.json())
     .then(data => {
         data.forEach(name => {
