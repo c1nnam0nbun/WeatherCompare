@@ -83,7 +83,7 @@ const updateStatistics = async () => {
 }
 
 app.get('/', (req, res) => {
-    res.sendFile('./public/index.html'));
+    res.sendFile('./public/index.html')
 });
 
 app.get('/all_cities', async (req, res) => {
