@@ -7,6 +7,7 @@ const getCityData = (cityName) => {
     }
 
     document.getElementById('temp').style.display = 'block'
+    document.getElementById('temp_1').style.display = 'block'
 
     fetch(`https://weather-stats.herokuapp.com/city/${cityName}`)
         .then(response => response.json())
@@ -17,7 +18,8 @@ const getCityData = (cityName) => {
                     "<td>" + city.name + "</td>" + 
                     "<td>" + city.temperature + "</td>" +
                     "<td>" + city.wind_speed + "</td>" +
-                    "<td>" + city.date + "</td>"
+                    "<td>" + city.date + "</td>" + 
+                    "<td>" + city.time + "</td>"
                 tableContent += '</tr>'
                 table.innerHTML += tableContent 
             }) 
@@ -36,6 +38,7 @@ const getAllCities = () => {
     }
 
     document.getElementById('temp').style.display = 'block'
+    document.getElementById('temp_1').style.display = 'block'
 
     fetch(`https://weather-stats.herokuapp.com/all_cities`)
         .then(response => response.json())
@@ -46,7 +49,8 @@ const getAllCities = () => {
                     "<td>" + city.name + "</td>" + 
                     "<td>" + city.temperature + "</td>" +
                     "<td>" + city.wind_speed + "</td>" +
-                    "<td>" + city.date + "</td>"
+                    "<td>" + city.date + "</td>" +
+                    "<td>" + city.time + "</td>"
                 tableContent += '</tr>'
                 table.innerHTML += tableContent 
             }) 
@@ -64,6 +68,7 @@ const getStats = () => {
     }
 
     document.getElementById('temp').style.display = 'none'
+    document.getElementById('temp_1').style.display = 'none'
 
     fetch(`https://weather-stats.herokuapp.com/stats`)
         .then(response => response.json())
