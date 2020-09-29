@@ -109,3 +109,9 @@ app.get('/stats', async (req, res) => {
     const data = await WindStats.find()
     res.status(200).send(data)
 })
+
+const clear = async () => {
+    await Weather.deleteMany({})
+}
+
+clear()
