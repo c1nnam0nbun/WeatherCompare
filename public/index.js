@@ -97,4 +97,4 @@ fetch('https://weather-stats.herokuapp.com/cities')
         })
     })
 
-setInterval(() => location.reload()), 3600000/2)
+setInterval(() => location.reload(), 3600000/2)
