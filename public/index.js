@@ -81,7 +81,7 @@ const getStats = () => {
         .catch(err => console.error(err))
 }
 
-fetch('https://weather-stats.herokuapp.com//cities')
+fetch('https://weather-stats.herokuapp.com/cities')
     .then(response => response.json())
     .then(data => {
         data.forEach(name => {
