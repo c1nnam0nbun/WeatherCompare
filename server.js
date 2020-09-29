@@ -9,7 +9,7 @@ const getWindDirection = require('./helpers/getWindDirection')
 
 require('dotenv').config()
 const app = express()
-app.use('/', express.static(__dirname + '/public/index.html'))
+app.use('/', express.static(path.join(__dirname + '/public/index.html')))
 
 const today = new Date()
 const db = mongoose.connection
