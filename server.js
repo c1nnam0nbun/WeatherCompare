@@ -115,7 +115,7 @@ const startKeepAlive = () => {
     setInterval(() => {
         let options = {
             host: 'weather-stats.herokuapp.com',
-            port: process.env.PORT,
+            port: 80,
             path: '/'
         };
         http.get(options, res => {
