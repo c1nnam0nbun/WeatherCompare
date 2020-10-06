@@ -118,7 +118,7 @@ const startKeepAlive = () => {
             port: 80,
             path: '/'
         };
-        http.get(options, res => {
+        app.get(options, res => {
             res.on('data', chunk => {
                 try {
                     console.log("HEROKU RESPONSE: " + chunk);
