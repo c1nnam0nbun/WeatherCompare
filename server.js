@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 const mongoose = require('mongoose')
 const express = require('express')
-const http = require('http'); //importing http
+const http = require('http');
 
 const destinations = require('./helpers/destinations')
 const Weather = require('./models/Weather')
@@ -25,7 +25,7 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS
 db.on('connected', () => {
     console.log('Connected')
 
-    app.listen(process.env.PORT || 8080, () => console.log('Listening...'))
+    app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}`))
 
     setInterval(() => destinations.forEach(city => getWeather(city)), 3600000/2)
 
@@ -118,7 +118,7 @@ const startKeepAlive = () => {
             port: 80,
             path: '/'
         };
-        app.get(options, res => {
+        http.get(options, res => {
             res.on('data', chunk => {
                 try {
                     console.log("HEROKU RESPONSE: " + chunk);
