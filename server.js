@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 const mongoose = require('mongoose')
 const express = require('express')
+const http = require('http'); //importing http
 
 const destinations = require('./helpers/destinations')
 const Weather = require('./models/Weather')
@@ -109,6 +110,29 @@ app.get('/stats', async (req, res) => {
     const data = await WindStats.find()
     res.status(200).send(data)
 })
+
+const startKeepAlive = () => {
+    setInterval(() => {
+        let options = {
+            host: 'weather-stats.herokuapp.com',
+            port: process.env.PORT,
+            path: '/'
+        };
+        http.get(options, res => {
+            res.on('data', chunk => {
+                try {
+                    console.log("HEROKU RESPONSE: " + chunk);
+                } catch (err) {
+                    console.log(err.message);
+                }
+            });
+        }).on('error', err => {
+            console.log("Error: " + err.message);
+        });
+    }, 20 * 60 * 1000); // load every 20 minutes
+}
+
+startKeepAlive();
 
 const clear = async () => {
     await Weather.deleteMany({})
